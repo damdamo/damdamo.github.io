@@ -1,8 +1,14 @@
 ---
-title: Les closures, l'application partiel et la curryfication
-author: Damien
 layout: post
+title: Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)
+author: Damien
+date: '2019-08-10'
+category:
+    - tutorial
+summary: Introduction aux notions de closures, application partiel et curryfication
+thumbnail: poupee_russe.jpg
 ---
+
 
 ## Introduction
 
@@ -13,7 +19,7 @@ Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, com
 
 Qu'est-ce que nous dit la documentation [Swift](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) à ce sujet ?
 
-> Closures are self-contained blocks of functionality that can be passed around and used in your code.
+> "Closures are self-contained blocks of functionality that can be passed around and used in your code."
 
 Finalement, c'est pas un peu comme une boîte à outils ? Dans cette boîte nous pouvons imaginer avoir des outils (des fonctions ?), qui nous permettent de travailler sur des vis, clous ou autres (nos Types).
 
@@ -42,8 +48,8 @@ print(clos(20,22))
 
 Nous pouvons voir une closure comme une fonction sans nom, qui est appelé grâce à la variable à laquelle elle a été liée (clos dans notre cas).
 Comme une fonction nous avons des paramètres d'entrée, le type de ces paramètres et le type de sortie.
-Plutôt que d'avoir la syntaxe des accolades pour séparer la signature et le corps de la fonction, nous avons le mot-clé `in`.
-Nous avons pour terminer la valeur de retour que nous signalons aussi avec le mot-clé `return`.
+Plutôt que d'avoir la syntaxe des accolades pour séparer la signature et le corps de la fonction, nous avons le mot-clé "*in* ".
+Nous avons pour terminer la valeur de retour que nous signalons aussi avec le mot-clé "*return* ".
 L'appel de cette closure se fait exactement de la même manière que si le nom de notre fonction était *clos*.
 C'est-à-dire qu'il nous suffit de passer à notre closure les paramètres attendus.
 Vous aurez compris que notre closure fait simplement l'addition de nos deux paramètres, rien de très passionnant n'est-ce pas ?
@@ -57,10 +63,10 @@ func apply(_ x: Int,_ y: Int, op: (Int, Int) -> Int) -> Int {
 ```
 
 Nous avons désormais la fonction *apply*, qui prend deux entiers et va appliquer une opération sur ceux-ci.
-Il faut être au clair sur la notation `op: (Int, Int) -> Int`.
+Il faut être au clair sur la notation "*op: (Int, Int) -> Int* ".
 Cela signifie que le paramètre *op* attend une fonction ou une closure qui prend deux entiers comme paramètres d'entrée, et retourne un entier.
 Vous l'avez peut-être remarqué, mais la closure que nous avons écrite avant répond parfaitement à ces conditions.
-Nous pouvons donc simplement appelé notre fonction ainsi:
+Nous pouvons donc simplement appelé notre fonction ainsi :
 
 ```swift
 // Retourne 42
@@ -68,7 +74,7 @@ print(apply(20, 22, op: clos))
 ```
 
 Vous commencez à comprendre ?
-Nous pouvons même faire plus simple sans avoir à déclarer notre closure au préalable comme ceci:
+Nous pouvons même faire plus simple sans avoir à déclarer notre closure au préalable comme ceci :
 
 ```swift
 apply(20, 22, op: {(x: Int, y: Int) -> Int in
@@ -76,7 +82,7 @@ apply(20, 22, op: {(x: Int, y: Int) -> Int in
 })
 ```
 
-Toutes les fonctions/closures ayant pour signature `(Int, Int) -> Int` peuvent être utilisé comme paramètre de *op*, peu importe que celles-ci aient été déclaré avant ou directement à l'appel.
+Toutes les fonctions/closures ayant pour signature "*(Int, Int) -> Int* " peuvent être utilisé comme paramètre de *op*, peu importe que celles-ci aient été déclaré avant ou directement à l'appel.
 
 Vous voulez quelques petites astuces syntaxiques pour vous simplifier la vie ?
 C'est parti !
@@ -100,7 +106,7 @@ apply(20, 22, op: {(x, y) in
 })
 ```
 
-Pas besoin de return ? Quand il n'y a aucune ambiguïté pour un cas aussi simple, Swift comprend que `x+y` est la valeur de retour. Bien entendu, vous pouvez mettre autant de code que vous désirez après le `in`, cependant il faudra remettre un `return` !
+Pas besoin de return ? Quand il n'y a aucune ambiguïté pour un cas aussi simple, Swift comprend que "*x+y* " est la valeur de retour. Bien entendu, vous pouvez mettre autant de code que vous désirez après le "*in* ", cependant il faudra remettre un "*return* " !
 
 C'est pas encore fini, nous pouvons encore faire mieux !
 
@@ -112,13 +118,13 @@ J'ai été trop loin ? Testez et vous verrez que ça marche !
 Dans ce code, nous n'avons même pas eu besoin de faire une quelconque différence entre signature et corps de notre closure.
 Par le même principe que l'inférence de type, dans cette situation Swift sait ce qu'il attend.
 Comment récupérons-nous les valeurs de nos paramètres à ce moment ?
-`$0` et `$1`sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d'entrée.
+"*$0* " et "*$1* " sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d'entrée.
 
-Un peu perdu ? Reprenons la signature de `op: (Int, Int) -> Int`.
-Donc `$0` correspond au premier `Int` et `$1` au second.
-L'ordre est important, car si nous avions par exemple `op: (Int, String) -> Int`, `$1` serait alors une chaîne de caractères.
+Un peu perdu ? Reprenons la signature de "*op: (Int, Int) -> Int* ".
+Donc "*$0* " correspond au premier entier et "*$1* " au second.
+L'ordre est important, car si nous avions par exemple "*op: (Int, String) -> Int* ", "*$1* " serait alors une chaîne de caractères.
 Swift a donc lié à des noms prédéfinis les valeurs, plutôt que nous donnions nous-même le nom de celle-ci.
-Pour le `return` qui n'est pas nécessaire je vous renvoie à ce que j'ai dit plus haut.
+Pour le "*return* " qui n'est pas nécessaire je vous renvoie à ce que j'ai dit plus haut.
 
 Encore un petit truc pour la route purement syntaxique, mais qui vous facilitera sûrement la vie !
 
@@ -133,53 +139,7 @@ Toutes les closures vues précédemment fonctionne avec cette syntaxe.
 Quand nous manipulons des fonctions aussi simple, vous conviendrez que nous pouvons nous simplifier la vie.
 Il faut cependant toujours faire attention à la lisibilité.
 
-## L'application partiel
+Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
+à l'application partiel !
 
-J'espère déjà que la boîte noire que représente les closures pour certains ne vous concernera plus.
-Vous vous doutez bien que si nous avons vu les closures, ce n'est pas pour tout oublier et changer complètement de registre !
-
-L'application **partiel** a pour principe d'initialiser des variables en fonction d'où nous nous situons dans l'appel d'une fonction/closure.
-Imaginons que vous fassiez des pizzas (de A à Z).
-En premier lieu vous allez faire la pâte, et seulement ensuite vous mettrez les ingrédients.
-Vous êtes d'accord que la même pâte est utilisé peu importe les ingrédients que vous mettez (Les Italiens me pardonneront) ?
-C'est un peu la même chose pour nous, parfois nous allons avoir des ingrédients qui seront toujours présent peu importe ce que nous ferons par la suite.
-
-Prenons un exemple plus concret !
-Supposons que vous aimeriez faire une fonction pour connaître la valeur d'une monnaie en fonction du change.
-
-```swift
-func euroToUs(_ x: Double) -> Double {
-  return x * 1.12
-}
-
-euroToUs(42)
-```
-
-Nous avons ici une fonction très simple qui converti les euros en dollars américains.
-Comment faire si je veux maintenant ajouter une nouvelle conversion ?
-Nous devons alors créer une nouvelle fonction.
-N'y a-t-il pas un moyen plus élégant et générique pour le faire ?
-Et si vous avez vu juste !
-Pourquoi ne pas simplement utiliser ce que nous avons vu précédemment ?
-
-```swift
-func change(x: Double, changeFunction: (Double) -> Double) -> Double {
-  return changeFunction(x)
-}
-```
-
-Plutôt que de créer une fonction pour chaque type de conversion, prenons une fonction plus générique qui prend une somme, et une closure qui se chargera de faire la conversion.
-
-En reprenant le même exemple nous obtenons:
-
-```swift
-change(42) {$0 * 1.12}
-```
-
-J'utilise bien entendu tous les éléments syntaxiques vu plus tôt, donc n'hésitez pas à revenir dessus si nécessaire !
-
-```swift
-func change(changeFunction: (Double) -> Double) -> Double {
-  return changeFunction(x)
-}
-```
+[Partie 2](partial-application-fr.html)
