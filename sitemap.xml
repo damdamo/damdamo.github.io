@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/personal/work/2017/11/19/super-long-article.html</loc>
-<lastmod>2017-11-19T09:05:23+00:00</lastmod>
+<loc>/2019/08/09/closure.html</loc>
+<lastmod>2019-08-09T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/personal/work/2017/11/19/this-post-demonstrates-post-content-styles.html</loc>
-<lastmod>2017-11-19T09:05:23+00:00</lastmod>
-</url>
-<url>
-<loc>/personal/2017/11/19/welcome-to-jekyll.html</loc>
-<lastmod>2017-11-19T09:05:23+00:00</lastmod>
+<loc>/personal/work/2019/08/10/first.html</loc>
+<lastmod>2019-08-10T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>/blog/categories/</loc>
