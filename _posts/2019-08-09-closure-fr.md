@@ -25,7 +25,7 @@ Finalement, c'est pas un peu comme une boîte à outils ? Dans cette boîte nous
 
 Et que Swift nous dit-il par rapport à la représentation de ces closures ?
 
-> Closure expression syntax has the following general form:
+> "Closure expression syntax has the following general form:"
 ```swift
 { (parameters) -> return type in
     statements
@@ -54,7 +54,7 @@ L'appel de cette closure se fait exactement de la même manière que si le nom d
 C'est-à-dire qu'il nous suffit de passer à notre closure les paramètres attendus.
 Vous aurez compris que notre closure fait simplement l'addition de nos deux paramètres, rien de très passionnant n'est-ce pas ?
 
-Passons un cran au-dessus en supposant que nous avons cette fois une fonction qui prend en paramètre une closure !
+Passons un cran au-dessus en supposant que nous avons cette fois une fonction prenant en paramètre une closure !
 
 ```swift
 func apply(_ x: Int,_ y: Int, op: (Int, Int) -> Int) -> Int {
@@ -94,7 +94,7 @@ apply(20, 22, op: {(x, y) in
 ```
 
 Vous avez peut-être remarqué mais nous avons omis le type de nos paramètres, et même le type de sortie ! Pourquoi ça fonctionne alors ?
-Dites merci à l'inférence de type et non à une magie obscure.
+Dites merci à l'[inférence de type](https://fr.wikipedia.org/wiki/Inf%C3%A9rence_de_types) et non à une magie obscure.
 Au moment de déclarer la fonction *apply*, nous avons déjà dit à Swift les types que nous attendions.
 Swift a automatiquement fait le rapprochement entre ce qu'il attend comme type et ce que vous lui donnez. C'est franchement génial non ?
 Pourtant nous sommes loin d'avoir vu toutes les simplifications possibles.
@@ -117,7 +117,7 @@ apply(20, 22, op: {$0 + $1})
 J'ai été trop loin ? Testez et vous verrez que ça marche !
 Dans ce code, nous n'avons même pas eu besoin de faire une quelconque différence entre signature et corps de notre closure.
 Par le même principe que l'inférence de type, dans cette situation Swift sait ce qu'il attend.
-Comment récupérons-nous les valeurs de nos paramètres à ce moment ?
+Comment récupérons-nous les valeurs de nos paramètres ?
 "*$0* " et "*$1* " sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d'entrée.
 
 Un peu perdu ? Reprenons la signature de "*op: (Int, Int) -> Int* ".
