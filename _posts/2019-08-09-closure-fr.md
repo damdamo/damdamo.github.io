@@ -2,10 +2,10 @@
 layout: post
 title: Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)
 author: Damien
-date: '2019-08-10'
+date: '2019-08-09'
 category:
     - tutorial
-summary: Introduction aux notions de closures, application partiel et curryfication
+summary: Introduction aux closures
 thumbnail: blog/poupee_russe.jpg
 ---
 
@@ -142,4 +142,4 @@ Il faut cependant toujours faire attention à la lisibilité.
 Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
 à l'application partiel !
 
-[Partie 2](partial-application-fr.html)
+[Partie 2: L'application partiel](../../../2019/08/10/partial-application-fr.html)
