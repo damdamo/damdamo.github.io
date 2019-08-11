@@ -6,7 +6,7 @@ date: '2019-08-10'
 category:
     - tutorial
 summary: Introduction aux notions de closures, application partiel et curryfication
-thumbnail: poupee_russe.jpg
+thumbnail: blog/poupee_russe.jpg
 ---
 
 
