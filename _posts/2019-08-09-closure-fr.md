@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 1/3) (French version)
 author: Damien
 date: '2019-08-09'
 category:
@@ -8,7 +8,6 @@ category:
 summary: Introduction aux closures
 thumbnail: blog/poupee_russe.jpg
 ---
-
 
 ## Introduction
 
@@ -140,6 +139,6 @@ Quand nous manipulons des fonctions aussi simple, vous conviendrez que nous pouv
 Il faut cependant toujours faire attention à la lisibilité.
 
 Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
-à l'application partiel !
+à l'application partielle !
 
-[Partie 2: L'application partiel](../../../2019/08/10/partial-application-fr.html)
+[Partie 2: L'application partielle](../../../2019/08/10/partial-application-fr.html)

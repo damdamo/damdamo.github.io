@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partiel et la curryfication (Partie 3/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 3/3) (French version)
 author: Damien
 date: '2019-08-11'
 category:
@@ -16,11 +16,11 @@ Il est important de bien comprendre les notions abordés dans nos deux précéde
 
 ## La curryfication
 
-J'espère que vous êtes bien au clair avec les closures et l'application partiel vu que cette dernière partie va tout mettre à profit.
+J'espère que vous êtes bien au clair avec les closures et l'application partielle vu que cette dernière partie va tout mettre à profit.
 
 La curryfication est le principe de prendre une fonction avec "*n*" paramètres et de la transformer en "*n*" fonctions avec chacune un argument.
 
-À l'inverse l'application partiel prend une fonction à "*n*" arguments et la transforme en "*m*" fonctions, avec "*m <= n*" (Nous avons au plus autant de fonctions que d'arguments).
+À l'inverse l'application partielle prend une fonction à "*n*" arguments et la transforme en "*m*" fonctions, avec "*m <= n*" (Nous avons au plus autant de fonctions que d'arguments).
 Prenez le temps de relire ces phrase plusieurs fois si besoin.
 
 Vous vous souvenez de l'exemple du poids de la dernière partie ?
@@ -76,8 +76,8 @@ Nous prenons simplement chaque argument de la fonction "*add*" pour faire en sor
 
 ### Différence entre application partielle et curryfication
 
-Au final, nous pourrions croire que la curryfication est un cas particulier de l'application partiel mais il existe une différence qui sépare ces deux notions.
-L'application partiel n'a pas nécessité à avoir un type de retour, tandis que la curryfication retournera toujours une fonction à un argument jusqu'au dernier type de retour qui sera la valeur.
+Au final, nous pourrions croire que la curryfication est un cas particulier de l'application partielle mais il existe une différence qui sépare ces deux notions.
+L'application partielle n'a pas nécessité à avoir un type de retour, tandis que la curryfication retournera toujours une fonction à un argument jusqu'au dernier type de retour qui sera la valeur.
 Cette nuance est subtile mais à le mérite d'exister, mais nous ne sommes pas ici pour débattre plus en détail sur ce sujet.
 
 
@@ -86,7 +86,7 @@ Cette nuance est subtile mais à le mérite d'exister, mais nous ne sommes pas i
 Quand vous curryfier une fonction, vous la transformez en ce que nous appelons une fonction "**pure**", possédant une propriété très intéressante.
 En effet les fonctions pures n'ont aucun effet de bord, c'est-à-dire qu'aucun comportement (mutation) non désirable dans le programme n'est possible.
 
-Vous avez les mêmes avantages qu'avec l'application partiel:
+Vous avez les mêmes avantages qu'avec l'application partielle:
 - Une meilleure décomposition du code
 - Plus de clarté et de lisibilité du code
 - La possibilité de déclarer des variables à différents niveaux de l'exécution.
@@ -96,7 +96,7 @@ Je vous conseille vivement de tester par vous-même, c'est le meilleur moyen de 
 
 ### Conclusion
 
-Nous arrivons à la fin de notre série de tutoriel sur les closures, l'application partiel et la curryfication.
+Nous arrivons à la fin de notre série de tutoriel sur les closures, l'application partielle et la curryfication.
 J'espère avoir démystifier ces principes, et surtout vous avoir apporté une meilleure compréhension globale sur le sujet.
 
 Je n'ai pas couvert tous les cas, et certains sujets méritent encore d'être explorés plus en profondeur.

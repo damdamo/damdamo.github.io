@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partiel et la curryfication (Partie 2/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 2/3) (French version)
 author: Damien
 date: '2019-08-10'
 category:
@@ -12,12 +12,12 @@ thumbnail: blog/poupee_russe.jpg
 Si vous n'avez pas encore lu la première partie, c'est [ici](../../../2019/08/09/closure-fr.html) !
 Il est important de bien comprendre les notations utilisées lors de la précédente partie.
 
-## L'application partiel
+## L'application partielle
 
 J'espère déjà que la boîte noire que représente les closures pour certains ne vous concerne plus.
 Vous vous doutez bien que si nous avons vu les closures, ce n'est pas pour tout oublier et changer complètement de registre !
 
-L'application **partiel** a pour principe d'initialiser des variables en fonction d'où nous nous situons dans l'appel d'une fonction/closure.
+L'application **partielle** a pour principe d'initialiser des variables en fonction d'où nous nous situons dans l'appel d'une fonction/closure.
 Imaginons que vous fassiez des pizzas (de A à Z).
 En premier lieu vous allez faire la pâte, et seulement ensuite vous mettrez les ingrédients.
 Vous êtes d'accord que la même pâte est utilisé peu importe les ingrédients que vous mettez (Les Italiens me pardonneront) ?
@@ -52,7 +52,7 @@ Je dois écrire une nouvelle fonction pour changer une seule valeur ?
 
 Heureusement, il y a un moyen plus générique de le faire pour ne pas avoir à écrire une nouvelle fonction à chaque fois que nous voulons connaître notre poids sur une planète différente !
 
-Je vous propose le code ci-dessous faisant appel à l'application partiel:
+Je vous propose le code ci-dessous faisant appel à l'application partielle:
 
 ```swift
 func poids(g: Double) -> (Double) -> Double {
@@ -145,7 +145,7 @@ Vous pouvez essayer de votre côté, nous avons exactement le même résultat at
 Nous avons repris la syntaxe des closures que nous avons vu dans la partie précédente.
 C'est comme retournée une fonction sans nom, et ça tombe bien vu que nous n'en avons pas besoin !
 
-L'application partiel permet de donner autant de paramètres que souhaités, de même que nous pouvons faire une cascade de closure qui demanderont chacunes divers paramètres.
+L'application partielle permet de donner autant de paramètres que souhaités, de même que nous pouvons faire une cascade de closure qui demanderont chacunes divers paramètres.
 
 Nous sommes enfin parés pour attaquer la dernière partie avec la curryfication !
 
