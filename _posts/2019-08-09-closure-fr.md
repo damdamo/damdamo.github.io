@@ -9,6 +9,8 @@ summary: Introduction aux closures
 thumbnail: blog/poupee_russe.jpg
 ---
 
+Disponible sur [Medium](https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67).
+
 ## Introduction
 
 Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
@@ -76,7 +78,7 @@ let clos = {(x: Int, y: Int) -> Int in
 print(clos(20,22))
 ```
 
-Nous pouvons voir une closure comme une fonction sans nom, qui est appelé grâce à la variable à laquelle elle a été liée (clos dans notre cas).
+Nous pouvons voir une closure comme une fonction sans nom, qui est appelée grâce à la variable à laquelle elle a été liée (clos dans notre cas).
 Comme une fonction nous avons des paramètres d'entrée, le type de ces paramètres et le type de sortie.
 Plutôt que d'avoir la syntaxe des accolades pour séparer la signature et le corps de la fonction, nous avons le mot-clé "*in* ".
 Nous avons pour terminer la valeur de retour que nous signalons aussi avec le mot-clé "*return* ".
@@ -96,7 +98,7 @@ Nous avons désormais la fonction *apply*, qui prend deux entiers et va applique
 Il faut être au clair sur la notation "*op: (Int, Int) -> Int* ".
 Cela signifie que le paramètre *op* attend une fonction ou une closure qui prend deux entiers comme paramètres d'entrée, et retourne un entier.
 Vous l'avez peut-être remarqué, mais la closure que nous avons écrite avant répond parfaitement à ces conditions.
-Nous pouvons donc simplement appelé notre fonction ainsi :
+Nous pouvons donc simplement appelée notre fonction ainsi :
 
 ```swift
 // Retourne 42
@@ -112,7 +114,7 @@ apply(20, 22, op: {(x: Int, y: Int) -> Int in
 })
 ```
 
-Toutes les fonctions/closures ayant pour signature "*(Int, Int) -> Int* " peuvent être utilisé comme paramètre de *op*, peu importe que celles-ci aient été déclaré avant ou directement à l'appel.
+Toutes les fonctions/closures ayant pour signature "*(Int, Int) -> Int* " peuvent être utilisées comme paramètre de *op*, peu importe que celles-ci aient été déclarées avant ou directement à l'appel.
 
 Vous voulez quelques petites astuces syntaxiques pour vous simplifier la vie ?
 C'est parti !
@@ -145,7 +147,7 @@ apply(20, 22, op: {$0 + $1})
 ```
 
 J'ai été trop loin ? Testez et vous verrez que ça marche !
-Dans ce code, nous n'avons même pas eu besoin de faire une quelconque différence entre signature et corps de notre closure.
+Dans ce code, nous n'avons même pas eu besoin de faire une quelconque différence entre signature et corps de fonction.
 Par le même principe que l'inférence de type, dans cette situation Swift sait ce qu'il attend.
 Comment récupérons-nous les valeurs de nos paramètres ?
 "*$0* " et "*$1* " sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d'entrée.
@@ -153,7 +155,7 @@ Comment récupérons-nous les valeurs de nos paramètres ?
 Un peu perdu ? Reprenons la signature de "*op: (Int, Int) -> Int* ".
 Donc "*$0* " correspond au premier entier et "*$1* " au second.
 L'ordre est important, car si nous avions par exemple "*op: (Int, String) -> Int* ", "*$1* " serait alors une chaîne de caractères.
-Swift a donc lié à des noms prédéfinis les valeurs, plutôt que nous donnions nous-même le nom de celle-ci.
+Swift a donc lié à des noms prédéfinis les valeurs, plutôt que nous donnions nous-mêmes le nom de celle-ci.
 Pour le "*return* " qui n'est pas nécessaire je vous renvoie à ce que j'ai dit plus haut.
 
 Encore un petit truc pour la route purement syntaxique, mais qui vous facilitera sûrement la vie !
@@ -164,7 +166,7 @@ apply(20, 22) {$0 + $1}
 
 Quand le dernier paramètre de votre fonction est une closure, vous pouvez l'appeler de cette manière.
 Même pas besoin de donner le nom du paramètre, vous écrivez juste entre accolade votre closure.
-Toutes les closures vues précédemment fonctionne avec cette syntaxe.
+Toutes les closures vues précédemment fonctionnent avec cette syntaxe.
 
 Quand nous manipulons des fonctions aussi simple, vous conviendrez que nous pouvons nous simplifier la vie.
 Il faut cependant toujours faire attention à la lisibilité.
