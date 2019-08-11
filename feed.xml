@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T19:41:10+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 3/3) (Swift)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 3/3) (Swift)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T20:35:46+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 3/3) (Swift)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 3/3) (Swift)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;Partie 1: Les closures&lt;/a&gt; !&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle et précision sur les closures&lt;/a&gt;
@@ -243,7 +243,9 @@ C’est comme retournée une fonction sans nom, et ça tombe bien vu que nous n�
 
 &lt;p&gt;Nous sommes enfin parés pour attaquer la dernière partie avec la curryfication !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/3) (Swift)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/3) (Swift)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;p&gt;Disponible sur &lt;a href=&quot;https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67&quot;&gt;Medium&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.&lt;/p&gt;
@@ -317,7 +319,7 @@ Il faut avant tout comprendre la syntaxe pour l’utiliser convenablement.&lt;/p
 &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;clos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Nous pouvons voir une closure comme une fonction sans nom, qui est appelé grâce à la variable à laquelle elle a été liée (clos dans notre cas).
+&lt;p&gt;Nous pouvons voir une closure comme une fonction sans nom, qui est appelée grâce à la variable à laquelle elle a été liée (clos dans notre cas).
 Comme une fonction nous avons des paramètres d’entrée, le type de ces paramètres et le type de sortie.
 Plutôt que d’avoir la syntaxe des accolades pour séparer la signature et le corps de la fonction, nous avons le mot-clé “&lt;em&gt;in&lt;/em&gt; “.
 Nous avons pour terminer la valeur de retour que nous signalons aussi avec le mot-clé “&lt;em&gt;return&lt;/em&gt; “.
@@ -336,7 +338,7 @@ Vous aurez compris que notre closure fait simplement l’addition de nos deux pa
 Il faut être au clair sur la notation “&lt;em&gt;op: (Int, Int) -&amp;gt; Int&lt;/em&gt; “.
 Cela signifie que le paramètre &lt;em&gt;op&lt;/em&gt; attend une fonction ou une closure qui prend deux entiers comme paramètres d’entrée, et retourne un entier.
 Vous l’avez peut-être remarqué, mais la closure que nous avons écrite avant répond parfaitement à ces conditions.
-Nous pouvons donc simplement appelé notre fonction ainsi :&lt;/p&gt;
+Nous pouvons donc simplement appelée notre fonction ainsi :&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Retourne 42&lt;/span&gt;
 &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -350,7 +352,7 @@ Nous pouvons même faire plus simple sans avoir à déclarer notre closure au pr
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Toutes les fonctions/closures ayant pour signature “&lt;em&gt;(Int, Int) -&amp;gt; Int&lt;/em&gt; “ peuvent être utilisé comme paramètre de &lt;em&gt;op&lt;/em&gt;, peu importe que celles-ci aient été déclaré avant ou directement à l’appel.&lt;/p&gt;
+&lt;p&gt;Toutes les fonctions/closures ayant pour signature “&lt;em&gt;(Int, Int) -&amp;gt; Int&lt;/em&gt; “ peuvent être utilisées comme paramètre de &lt;em&gt;op&lt;/em&gt;, peu importe que celles-ci aient été déclarées avant ou directement à l’appel.&lt;/p&gt;
 
 &lt;p&gt;Vous voulez quelques petites astuces syntaxiques pour vous simplifier la vie ?
 C’est parti !&lt;/p&gt;
@@ -380,7 +382,7 @@ Next !&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;J’ai été trop loin ? Testez et vous verrez que ça marche !
-Dans ce code, nous n’avons même pas eu besoin de faire une quelconque différence entre signature et corps de notre closure.
+Dans ce code, nous n’avons même pas eu besoin de faire une quelconque différence entre signature et corps de fonction.
 Par le même principe que l’inférence de type, dans cette situation Swift sait ce qu’il attend.
 Comment récupérons-nous les valeurs de nos paramètres ?
 “&lt;em&gt;$0&lt;/em&gt; “ et “&lt;em&gt;$1&lt;/em&gt; “ sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d’entrée.&lt;/p&gt;
@@ -388,7 +390,7 @@ Comment récupérons-nous les valeurs de nos paramètres ?
 &lt;p&gt;Un peu perdu ? Reprenons la signature de “&lt;em&gt;op: (Int, Int) -&amp;gt; Int&lt;/em&gt; “.
 Donc “&lt;em&gt;$0&lt;/em&gt; “ correspond au premier entier et “&lt;em&gt;$1&lt;/em&gt; “ au second.
 L’ordre est important, car si nous avions par exemple “&lt;em&gt;op: (Int, String) -&amp;gt; Int&lt;/em&gt; “, “&lt;em&gt;$1&lt;/em&gt; “ serait alors une chaîne de caractères.
-Swift a donc lié à des noms prédéfinis les valeurs, plutôt que nous donnions nous-même le nom de celle-ci.
+Swift a donc lié à des noms prédéfinis les valeurs, plutôt que nous donnions nous-mêmes le nom de celle-ci.
 Pour le “&lt;em&gt;return&lt;/em&gt; “ qui n’est pas nécessaire je vous renvoie à ce que j’ai dit plus haut.&lt;/p&gt;
 
 &lt;p&gt;Encore un petit truc pour la route purement syntaxique, mais qui vous facilitera sûrement la vie !&lt;/p&gt;
@@ -398,7 +400,7 @@ Pour le “&lt;em&gt;return&lt;/em&gt; “ qui n’est pas nécessaire je vous r
 
 &lt;p&gt;Quand le dernier paramètre de votre fonction est une closure, vous pouvez l’appeler de cette manière.
 Même pas besoin de donner le nom du paramètre, vous écrivez juste entre accolade votre closure.
-Toutes les closures vues précédemment fonctionne avec cette syntaxe.&lt;/p&gt;
+Toutes les closures vues précédemment fonctionnent avec cette syntaxe.&lt;/p&gt;
 
 &lt;p&gt;Quand nous manipulons des fonctions aussi simple, vous conviendrez que nous pouvons nous simplifier la vie.
 Il faut cependant toujours faire attention à la lisibilité.&lt;/p&gt;
@@ -406,4 +408,4 @@ Il faut cependant toujours faire attention à la lisibilité.&lt;/p&gt;
 &lt;p&gt;Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
 à l’application partielle !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Introduction</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Disponible sur Medium.</summary></entry></feed>
