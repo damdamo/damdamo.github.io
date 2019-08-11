@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T08:26:59+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 1/3) (French version)</title><link href="/tutorial/2019/08/10/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/10/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T08:37:35+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 1/3) (French version)</title><link href="/tutorial/2019/08/10/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/10/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.&lt;/p&gt;
@@ -16,7 +16,7 @@ Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, com
 &lt;p&gt;Et que Swift nous dit-il par rapport à la représentation de ces closures ?&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Closure expression syntax has the following general form:&lt;/p&gt;
+  &lt;p&gt;“Closure expression syntax has the following general form:”&lt;/p&gt;
   &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;statements&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -44,7 +44,7 @@ L’appel de cette closure se fait exactement de la même manière que si le nom
 C’est-à-dire qu’il nous suffit de passer à notre closure les paramètres attendus.
 Vous aurez compris que notre closure fait simplement l’addition de nos deux paramètres, rien de très passionnant n’est-ce pas ?&lt;/p&gt;
 
-&lt;p&gt;Passons un cran au-dessus en supposant que nous avons cette fois une fonction qui prend en paramètre une closure !&lt;/p&gt;
+&lt;p&gt;Passons un cran au-dessus en supposant que nous avons cette fois une fonction prenant en paramètre une closure !&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -80,7 +80,7 @@ C’est parti !&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Vous avez peut-être remarqué mais nous avons omis le type de nos paramètres, et même le type de sortie ! Pourquoi ça fonctionne alors ?
-Dites merci à l’inférence de type et non à une magie obscure.
+Dites merci à l’&lt;a href=&quot;https://fr.wikipedia.org/wiki/Inf%C3%A9rence_de_types&quot;&gt;inférence de type&lt;/a&gt; et non à une magie obscure.
 Au moment de déclarer la fonction &lt;em&gt;apply&lt;/em&gt;, nous avons déjà dit à Swift les types que nous attendions.
 Swift a automatiquement fait le rapprochement entre ce qu’il attend comme type et ce que vous lui donnez. C’est franchement génial non ?
 Pourtant nous sommes loin d’avoir vu toutes les simplifications possibles.
@@ -101,7 +101,7 @@ Next !&lt;/p&gt;
 &lt;p&gt;J’ai été trop loin ? Testez et vous verrez que ça marche !
 Dans ce code, nous n’avons même pas eu besoin de faire une quelconque différence entre signature et corps de notre closure.
 Par le même principe que l’inférence de type, dans cette situation Swift sait ce qu’il attend.
-Comment récupérons-nous les valeurs de nos paramètres à ce moment ?
+Comment récupérons-nous les valeurs de nos paramètres ?
 “&lt;em&gt;$0&lt;/em&gt; “ et “&lt;em&gt;$1&lt;/em&gt; “ sont des noms conventionnels que Swift utilise par défaut, prenant les valeurs des paramètres d’entrée.&lt;/p&gt;
 
 &lt;p&gt;Un peu perdu ? Reprenons la signature de “&lt;em&gt;op: (Int, Int) -&amp;gt; Int&lt;/em&gt; “.
