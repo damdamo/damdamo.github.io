@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T18:58:40+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 3/3) (French version)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 3/3) (French version)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T19:41:10+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 3/3) (Swift)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 3/3) (Swift)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;Partie 1: Les closures&lt;/a&gt; !&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle et précision sur les closures&lt;/a&gt;
@@ -63,6 +63,8 @@ Nous avons simplement décomposé le second argument de la fonction dans notre c
 
 &lt;p&gt;Nous prenons simplement chaque argument de la fonction “&lt;em&gt;add&lt;/em&gt;” pour faire en sorte d’avoir des fonctions avec un unique argument.&lt;/p&gt;
 
+&lt;p&gt;Le principe de curryfication peut s’appliquer dans les deux sens, nous pouvons prendre une fonction pour la curryfier ou la decurryfier.&lt;/p&gt;
+
 &lt;h3 id=&quot;différence-entre-application-partielle-et-curryfication&quot;&gt;Différence entre application partielle et curryfication&lt;/h3&gt;
 
 &lt;p&gt;Au final, nous pourrions croire que la curryfication est un cas particulier de l’application partielle mais il existe une différence qui sépare ces deux notions.
@@ -106,7 +108,7 @@ I can share you my research, different kind of tutorial to enhance your (and my)
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/damienmorard/&quot;&gt;Linkedin&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/damdamo&quot;&gt;Github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Damien</name></author><category term="[&quot;personal&quot;]" /><summary type="html">Hello ! I’m Damien and I decided to create my own website. Why ? Because I just want to share my passion about Computer Science ! I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 2/3) (French version)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 2/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;ici&lt;/a&gt; !
+&lt;/ul&gt;</content><author><name>Damien</name></author><category term="[&quot;personal&quot;]" /><summary type="html">Hello ! I’m Damien and I decided to create my own website. Why ? Because I just want to share my passion about Computer Science ! I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 2/3) (Swift)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 2/3) (Swift)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;ici&lt;/a&gt; !
 Il est important de bien comprendre les notations utilisées lors de la précédente partie.&lt;/p&gt;
 
 &lt;h2 id=&quot;lapplication-partielle&quot;&gt;L’application partielle&lt;/h2&gt;
@@ -241,7 +243,7 @@ C’est comme retournée une fonction sans nom, et ça tombe bien vu que nous n�
 
 &lt;p&gt;Nous sommes enfin parés pour attaquer la dernière partie avec la curryfication !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/3) (French version)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/3) (French version)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/3) (Swift)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.&lt;/p&gt;
@@ -254,17 +256,53 @@ Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, com
   &lt;p&gt;“Closures are self-contained blocks of functionality that can be passed around and used in your code.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Finalement, c’est pas un peu comme une boîte à outils ? Dans cette boîte nous pouvons imaginer avoir des outils (des fonctions ?), qui nous permettent de travailler sur des vis, clous ou autres (nos Types).&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Les closures sont des blocs autonomes composés de fonctionnalités pouvant être passées et utilisées dans votre code”.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Et que Swift nous dit-il par rapport à la représentation de ces closures ?&lt;/p&gt;
+&lt;p&gt;Finalement, c’est pas un peu comme une boîte à outils ? Dans cette boîte nous pouvons imaginer avoir des outils, et les manipuler nous permet d’obtenir/modifier certaines pièces.
+Cette définition reste un peu générale, mais la documentation ne s’arrête pas là:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Closures can capture and store references to any constants and variables from the context in which they are defined.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Les closures peuvent capturer et enregistrer des références pour n’importe quelles constantes ou variables du contexte dans laquelles elles sont définies.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Je pense que nous avons besoin de clarifier certaines notions de ces définitions pour bien comprendre la théorie.
+Une closure c’est un peu comme un environnement, une mémoire qui va garder des valeurs que nous avons défini à l’intérieur.
+C’est comme quand vous déclarez des variables, sauf qu’elles seront seulement accessible dans une certaine portée.
+Je crois qu’un petit exemple ne fera pas de mal:&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 3&lt;/span&gt;
+  &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Use of unresolved identifier 'x'&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dans ce petit exemple, nous avons une fonction “&lt;em&gt;foo&lt;/em&gt;” qui déclare à l’intérieur une variable “&lt;em&gt;x&lt;/em&gt;”.
+Cette variable est visible seulement à l’intérieur de notre fonction, une fois sortie celle-ci n’existe plus.
+C’est la même chose pour une closure !
+Nous avons donc des variables, et des fonctionnalités qui ne sont rien d’autre que des fonctions.&lt;/p&gt;
+
+&lt;p&gt;Nous aurons l’occasion un peu plus tard de revenir en détail sur les closures.
+Pour l’heure, regardons comment nous pouvons les manipuler en Swift.&lt;/p&gt;
+
+&lt;p&gt;Qu’est-ce que Swift nous dit-il par rapport à la représentation syntaxique des closures ?&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;“Closure expression syntax has the following general form:”&lt;/p&gt;
-  &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;statements&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Cette syntaxe vous a l’air peut-être rude, et c’est sûrement le premier point qui fait défaut quand nous désirons manipuler des closures.
 Il faut avant tout comprendre la syntaxe pour l’utiliser convenablement.&lt;/p&gt;
