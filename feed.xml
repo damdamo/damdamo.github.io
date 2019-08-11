@@ -1,4 +1,160 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T12:03:12+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 1/3) (French version)</title><link href="/tutorial/2019/08/10/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/10/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-11T16:06:42+00:00</updated><id>/feed.xml</id><title type="html">Damien’s Adventure</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 3/3) (French version)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 3/3) (French version)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;Partie 1: Les closures&lt;/a&gt; !&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle et précision sur les closures&lt;/a&gt;
+Il est important de bien comprendre les notions abordés dans nos deux précédents chapitres !&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;la-curryfication&quot;&gt;La curryfication&lt;/h2&gt;
+
+&lt;p&gt;À venir …&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous: Partie 1: Les closures ! Partie 2: L’application partielle et précision sur les closures Il est important de bien comprendre les notions abordés dans nos deux précédents chapitres !</summary></entry><entry><title type="html">Introduction</title><link href="/personal/2019/08/10/first.html" rel="alternate" type="text/html" title="Introduction" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/personal/2019/08/10/first</id><content type="html" xml:base="/personal/2019/08/10/first.html">&lt;p&gt;Hello !
+I’m Damien and I decided to create my own website.
+Why ? Because I just want to share my passion about Computer Science !
+I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.&lt;/p&gt;
+
+&lt;p&gt;My native language is French, so don’t be surprised if you see English and French.&lt;/p&gt;
+
+&lt;p&gt;Here some social network where you can find me:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/damienmorard/&quot;&gt;Linkedin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/damdamo&quot;&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Damien</name></author><category term="[&quot;personal&quot;]" /><summary type="html">Hello ! I’m Damien and I decided to create my own website. Why ? Because I just want to share my passion about Computer Science ! I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.</summary></entry><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 2/3) (French version)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 2/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;ici&lt;/a&gt; !
+Il est important de bien comprendre les notations utilisées lors de la précédente partie.&lt;/p&gt;
+
+&lt;h2 id=&quot;lapplication-partiel&quot;&gt;L’application partiel&lt;/h2&gt;
+
+&lt;p&gt;J’espère déjà que la boîte noire que représente les closures pour certains ne vous concerne plus.
+Vous vous doutez bien que si nous avons vu les closures, ce n’est pas pour tout oublier et changer complètement de registre !&lt;/p&gt;
+
+&lt;p&gt;L’application &lt;strong&gt;partiel&lt;/strong&gt; a pour principe d’initialiser des variables en fonction d’où nous nous situons dans l’appel d’une fonction/closure.
+Imaginons que vous fassiez des pizzas (de A à Z).
+En premier lieu vous allez faire la pâte, et seulement ensuite vous mettrez les ingrédients.
+Vous êtes d’accord que la même pâte est utilisé peu importe les ingrédients que vous mettez (Les Italiens me pardonneront) ?
+C’est un peu la même chose pour nous, parfois nous allons avoir des ingrédients qui seront toujours présent peu importe ce que nous faisons par la suite.&lt;/p&gt;
+
+&lt;h3 id=&quot;lexemple-du-poids&quot;&gt;L’exemple du poids&lt;/h3&gt;
+
+&lt;p&gt;Prenons un exemple plus concret !
+Vous souvenez vous de vos cours de physique ?
+Ne vous inquiétez pas, nous n’allons rien voir de bien compliqué.
+Vous savez sûrement que la gravité n’est pas la même sur la Terre que sur la Lune.
+Nous avons la formule suivante en physique :&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;P = m * g&lt;/code&gt; (&lt;em&gt;P&lt;/em&gt; étant le poids, &lt;em&gt;m&lt;/em&gt; la masse et &lt;em&gt;g&lt;/em&gt; la gravité).
+La masse et le poids sont deux choses distinctes !&lt;/p&gt;
+
+&lt;p&gt;La gravité de la Terre est de 9.81 N/kg, et supposons une masse de 70 kg.
+Nous obtenons alors &lt;em&gt;P = 9.81&lt;/em&gt; * &lt;em&gt;70&lt;/em&gt; (N), qui est le poids sur Terre d’une personne avec une masse particulière.
+Après cette légère paranthèse, vous allez comprendre pourquoi je vous ai introduit ces quelques notions.&lt;/p&gt;
+
+&lt;p&gt;Je veux désormais créer une fonction permettant de calculer le poids d’une personne sur Terre.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;poidsTerre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;9.81&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;poidsTerre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;9.81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Si maintenant j’aimerai avoir le poids d’une personne sur la Lune, comment suis-je censé faire ?
+Je dois écrire une nouvelle fonction pour changer une seule valeur ?&lt;/p&gt;
+
+&lt;p&gt;Heureusement, il y a un moyen plus générique de le faire pour ne pas avoir à écrire une nouvelle fonction à chaque fois que nous voulons connaître notre poids sur une planète différente !&lt;/p&gt;
+
+&lt;p&gt;Je vous propose le code ci-dessous faisant appel à l’application partiel:&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;poids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Wooooooow, c’est peut-être ce que vous êtes entrain de vous dire.
+Je vous l’accorde, il y a pas mal de différences entre les deux versions, mais nous allons décortiquer tout cela ensemble.
+La première principale différence est la signature de la fonction.
+En effet, nous ne retournons pas directement un “&lt;em&gt;Double&lt;/em&gt;”, mais une fonction qui prend un “&lt;em&gt;Double&lt;/em&gt;” et retourne un “&lt;em&gt;Double&lt;/em&gt;”.
+C’est ce que signifie le retour “&lt;em&gt;(Double) -&amp;gt; Double&lt;/em&gt;”.
+Cette syntaxe vous rappelle sûrement ce que nous avons vu avec les opérations de la partie précédente.&lt;/p&gt;
+
+&lt;p&gt;Il nous faut donc retourner une fonction, c’est pour cette raison que nous avons créé “&lt;em&gt;foo&lt;/em&gt;”, qui a la signature “&lt;em&gt;(Double) -&amp;gt; Double&lt;/em&gt;” (exactement ce que nous voulons).
+Cette seconde fonction fait juste l’application de la formule vu plus haut.
+Nous prenons bien soin de remarquer que nous retournons “&lt;em&gt;foo&lt;/em&gt;” et non “&lt;em&gt;foo(…)&lt;/em&gt;”.
+Ce n’est absolument pas la même chose, d’un côté nous retournons la fonction, et de l’autre nous retournons l’appel à cette fonction !&lt;/p&gt;
+
+&lt;p&gt;La signature de “&lt;em&gt;foo&lt;/em&gt;” est “&lt;em&gt;(Double) -&amp;gt; Double&lt;/em&gt;” tandis que celle de l’appel de “&lt;em&gt;foo(…)&lt;/em&gt;” est “&lt;em&gt;Double&lt;/em&gt;”.
+Surtout que pour appeler la fonction &lt;em&gt;foo(…)&lt;/em&gt; il nous faudrait un paramètre que nous n’avons pas encore.
+Vous voulez vous en convaincre ?
+À ce moment tenter d’afficher le résultat de l’appel de “&lt;em&gt;poids&lt;/em&gt;” avec “&lt;em&gt;g&lt;/em&gt;”.
+Réfléchissez deux minutes avant de passer à la suite.&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;Allez on regarde !&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Retourne (Function)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;poidsTerre&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;poids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;9.81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;poidsTerre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Retourne (Double) -&amp;gt; Double&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;poidsTerre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Swift nous dit que le résultat est une fonction, dont vous connaissez la signature !
+Si nous désirons connaître le résultat pour une masse particulière, il nous faut appeler cette nouvelle fonction avec le paramètre de “&lt;em&gt;foo&lt;/em&gt;”.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Possibilité 1&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;poids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;9.81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Possibilité 2&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;poidsTerre&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;poids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;9.81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;poidsTerre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tout l’intérêt réside dans la possibilité 2, nous pouvons initialiser une variable avec une gravité particulière.
+Nous nous en servons ensuite comme d’une nouvelle fonction qui attend en paramètre la masse.
+C’est quand même plus pratique d’avoir à déclarer une seule fonction, que vous pouvez aisément mettre dans une variable.&lt;/p&gt;
+
+&lt;p&gt;Je viens de vous montrer le fonctionnement général, cependant il vous faudra pratiquer ces notions pour que cela devienne intuitif.&lt;/p&gt;
+
+&lt;h3 id=&quot;une-définition-plus-complète-de-la-closure&quot;&gt;Une définition plus complète de la closure&lt;/h3&gt;
+
+&lt;p&gt;Avez-vous remarqué le lien avec les closures ?
+Depuis le début nous nous en servons, les closures sont partout !
+Quand nous déclarons “&lt;em&gt;poidsTerre&lt;/em&gt;”, nous gardons en mémoire une closure.
+Le concept que nous avons vu jusqu’à maintenant restait simple, sans aborder vraiment sa consistance même !&lt;/p&gt;
+
+&lt;p&gt;Au final, une closure ce n’est rien d’autre qu’une fonction accompagnée de son environnement lexical.
+Un environnement lexical ? What is it ?
+C’est simplement toutes les valeurs qui ont été capturées et qui peuvent être utilisées dans l’appel de notre fonction.
+Prenons l’exemple de “&lt;em&gt;poidsTerre&lt;/em&gt;” pour mieux comprendre.
+Dans notre cas, “&lt;em&gt;poidsTerre&lt;/em&gt;” est une closure contenant comme valeur capturé “&lt;em&gt;g&lt;/em&gt;” étant égal à &lt;em&gt;9.81&lt;/em&gt;, et une fonction foo.
+Dire que nous avons capturé “&lt;em&gt;g&lt;/em&gt;” revient à dire que notre variable sera connue dans l’appel de “&lt;em&gt;foo&lt;/em&gt;”.
+Cette notion est très large et fait partie de ce que nous appelons la &lt;a href=&quot;https://fr.wikipedia.org/wiki/Port%C3%A9e_(informatique)&quot;&gt;portée&lt;/a&gt; (scope).
+Nous ne nous étendrons pas sur ce sujet dans cet article, mais si vous désirez en savoir plus sur le fonctionnement je vous y encourage vivement !&lt;/p&gt;
+
+&lt;p&gt;Vous avez peut-être remarqué le nom de fonction “&lt;em&gt;foo&lt;/em&gt;” qui n’a pas vraiment de signification.
+Ce nom sera inconnu en dehors du corps de la fonction “&lt;em&gt;poids&lt;/em&gt;”, et vous ne vous en servirez quasiment jamais (parce qu’il ne faut jamais dire jamais) !
+Au moment de l’appelée avec “&lt;em&gt;poidsTerre&lt;/em&gt;”, pas besoin de donner un nom de fonction, et pas non plus besoin de donner le nom du label.&lt;/p&gt;
+
+&lt;p&gt;Alors ce serait pas mieux de retourner directement une closure plutôt qu’une fonction dont le nom ne nous intéresse guère ?
+Bien vu !&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;poids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Vous pouvez essayer de votre côté, nous avons exactement le même résultat attendu.
+Nous avons repris la syntaxe des closures que nous avons vu dans la partie précédente.
+C’est comme retournée une fonction sans nom, et ça tombe bien vu que nous n’en avons pas besoin !&lt;/p&gt;
+
+&lt;p&gt;L’application partiel permet de donner autant de paramètres que souhaités, de même que nous pouvons faire une cascade de closure qui demanderont chacunes divers paramètres.&lt;/p&gt;
+
+&lt;p&gt;Nous sommes enfin parés pour attaquer la dernière partie avec la curryfication !&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 1/3) (French version)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 1/3) (French version)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.&lt;/p&gt;
@@ -125,66 +281,4 @@ Il faut cependant toujours faire attention à la lisibilité.&lt;/p&gt;
 &lt;p&gt;Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
 à l’application partiel !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;partial-application-fr.html&quot;&gt;Partie 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Introduction</summary></entry><entry><title type="html">Introduction</title><link href="/personal/2019/08/10/first.html" rel="alternate" type="text/html" title="Introduction" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/personal/2019/08/10/first</id><content type="html" xml:base="/personal/2019/08/10/first.html">&lt;p&gt;Hello !
-I’m Damien and I decided to create my own website.
-Why ? Because I just want to share my passion about Computer Science !
-I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.&lt;/p&gt;
-
-&lt;p&gt;My native language is French, so don’t be surprised if you see English and French.&lt;/p&gt;
-
-&lt;p&gt;Here some social network where you can find me:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/damienmorard/&quot;&gt;Linkedin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/damdamo&quot;&gt;Github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Damien</name></author><category term="[&quot;personal&quot;]" /><summary type="html">Hello ! I’m Damien and I decided to create my own website. Why ? Because I just want to share my passion about Computer Science ! I can share you my research, different kind of tutorial to enhance your (and my) knowledge on a particular subject, or just my opinion.</summary></entry><entry><title type="html">Les closures, l’application partiel et la curryfication (Partie 2/3) (French version)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partiel et la curryfication (Partie 2/3) (French version)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;closure-fr.html&quot;&gt;ici&lt;/a&gt; !
-Il est important de bien comprendre les notations utilisées lors de la précédente partie.&lt;/p&gt;
-
-&lt;h2 id=&quot;lapplication-partiel&quot;&gt;L’application partiel&lt;/h2&gt;
-
-&lt;p&gt;J’espère déjà que la boîte noire que représente les closures pour certains ne vous concernera plus.
-Vous vous doutez bien que si nous avons vu les closures, ce n’est pas pour tout oublier et changer complètement de registre !&lt;/p&gt;
-
-&lt;p&gt;L’application &lt;strong&gt;partiel&lt;/strong&gt; a pour principe d’initialiser des variables en fonction d’où nous nous situons dans l’appel d’une fonction/closure.
-Imaginons que vous fassiez des pizzas (de A à Z).
-En premier lieu vous allez faire la pâte, et seulement ensuite vous mettrez les ingrédients.
-Vous êtes d’accord que la même pâte est utilisé peu importe les ingrédients que vous mettez (Les Italiens me pardonneront) ?
-C’est un peu la même chose pour nous, parfois nous allons avoir des ingrédients qui seront toujours présent peu importe ce que nous ferons par la suite.&lt;/p&gt;
-
-&lt;p&gt;Prenons un exemple plus concret !
-Supposons que vous aimeriez faire une fonction pour connaître la valeur d’une monnaie en fonction du change.&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;euroToUs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.12&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nf&quot;&gt;euroToUs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Nous avons ici une fonction très simple qui converti les euros en dollars américains.
-Comment faire si je veux maintenant ajouter une nouvelle conversion ?
-Nous devons alors créer une nouvelle fonction.
-N’y a-t-il pas un moyen plus élégant et générique pour le faire ?
-Et si vous avez vu juste !
-Pourquoi ne pas simplement utiliser ce que nous avons vu précédemment ?&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;changeFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;changeFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Plutôt que de créer une fonction pour chaque type de conversion, prenons une fonction plus générique qui prend une somme, et une closure qui se chargera de faire la conversion.&lt;/p&gt;
-
-&lt;p&gt;En reprenant le même exemple nous obtenons :&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;J’utilise bien entendu tous les éléments syntaxiques vu plus tôt, donc n’hésitez pas à revenir dessus si nécessaire !&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;changeFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;changeFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Suite à venir …&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partiel&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Introduction</summary></entry></feed>
