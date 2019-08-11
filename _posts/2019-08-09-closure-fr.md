@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partielle et la curryfication (Partie 1/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)
 author: Damien
 date: '2019-08-09'
 category:
@@ -20,11 +20,42 @@ Qu'est-ce que nous dit la documentation [Swift](https://docs.swift.org/swift-boo
 
 > "Closures are self-contained blocks of functionality that can be passed around and used in your code."
 
-Finalement, c'est pas un peu comme une boîte à outils ? Dans cette boîte nous pouvons imaginer avoir des outils (des fonctions ?), qui nous permettent de travailler sur des vis, clous ou autres (nos Types).
+> "Les closures sont des blocs autonomes composés de fonctionnalités pouvant être passées et utilisées dans votre code".
 
-Et que Swift nous dit-il par rapport à la représentation de ces closures ?
+Finalement, c'est pas un peu comme une boîte à outils ? Dans cette boîte nous pouvons imaginer avoir des outils, et les manipuler nous permet d'obtenir/modifier certaines pièces.
+Cette définition reste un peu générale, mais la documentation ne s'arrête pas là:
+
+> "Closures can capture and store references to any constants and variables from the context in which they are defined."
+
+> "Les closures peuvent capturer et enregistrer des références pour n'importe quelles constantes ou variables du contexte dans laquelles elles sont définies."
+
+Je pense que nous avons besoin de clarifier certaines notions de ces définitions pour bien comprendre la théorie.
+Une closure c'est un peu comme un environnement, une mémoire qui va garder des valeurs que nous avons défini à l'intérieur.
+C'est comme quand vous déclarez des variables, sauf qu'elles seront seulement accessible dans une certaine portée.
+Je crois qu'un petit exemple ne fera pas de mal:
+
+```swift
+func foo() {
+  let x = 3
+  // 3
+  print(x)
+}
+// Use of unresolved identifier 'x'
+print(x)
+```
+
+Dans ce petit exemple, nous avons une fonction "*foo*" qui déclare à l'intérieur une variable "*x*".
+Cette variable est visible seulement à l'intérieur de notre fonction, une fois sortie celle-ci n'existe plus.
+C'est la même chose pour une closure !
+Nous avons donc des variables, et des fonctionnalités qui ne sont rien d'autre que des fonctions.
+
+Nous aurons l'occasion un peu plus tard de revenir en détail sur les closures.
+Pour l'heure, regardons comment nous pouvons les manipuler en Swift.
+
+Qu'est-ce que Swift nous dit-il par rapport à la représentation syntaxique des closures ?
 
 > "Closure expression syntax has the following general form:"
+
 ```swift
 { (parameters) -> return type in
     statements

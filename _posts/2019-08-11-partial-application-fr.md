@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partielle et la curryfication (Partie 2/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 2/3) (Swift)
 author: Damien
 date: '2019-08-10'
 category:

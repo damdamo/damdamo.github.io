@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Les closures, l'application partielle et la curryfication (Partie 3/3) (French version)
+title: Les closures, l'application partielle et la curryfication (Partie 3/3) (Swift)
 author: Damien
 date: '2019-08-11'
 category:
@@ -73,6 +73,8 @@ print(add(10)(10)(22))
 ```
 
 Nous prenons simplement chaque argument de la fonction "*add*" pour faire en sorte d'avoir des fonctions avec un unique argument.
+
+Le principe de curryfication peut s'appliquer dans les deux sens, nous pouvons prendre une fonction pour la curryfier ou la decurryfier.
 
 ### Différence entre application partielle et curryfication
 
