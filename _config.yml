@@ -1,4 +1,4 @@
-title: Damien's Adventure # the title of your blog
+title: Damien Morard # the title of your blog
 
 subtitle: Enjoy Programming (and even more...) # subtitle of your blog
 
@@ -41,6 +41,22 @@ medium_username: dmorard1
 # telegram_username: yourusername
 # dribbble_username: yourusername
 # flickr_username: yourusername
+
+author_work_experiences:
+            - company_name: Google
+              company_logo: google.png
+              company_url: https://google.com
+              designation: Software Engineer
+              description: Worked on various Google Products
+              visibility: true
+            - company_name: Microsoft
+              company_logo: microsoft.png
+              company_url: https://microsoft.com
+              designation: Azure Developer
+              description: Worked on various Azure Cloud Products
+              visibility: true
+
+show_author_work_experiences: true
 
 # important to use devlopr theme
 theme: devlopr

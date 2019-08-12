@@ -44,7 +44,7 @@ Je veux désormais créer une fonction permettant de calculer le poids d'une per
 func poidsTerre(m: Double) -> Double {
   return m * 9.81
 }
-print(poidsTerre(m: 70, g: 9.81))
+print(poidsTerre(m: 70))
 ```
 
 Si maintenant j'aimerai avoir le poids d'une personne sur la Lune, comment suis-je censé faire ?
