@@ -23,7 +23,7 @@ author: Damien Morard
 author_bio: >- # this means to ignore newlines until "author_email:"
   Hey ! I'm Damien, a PhD student at the university of Geneva.
   My research field is Computer Science, and my research areas are semantics, modeling and verification.
-  I'm working on a way to improve High-level Petri nets, adding a way to use functions as token.
+  I'm working on an extension to improve High-level Petri nets, adding a way to use functions as token.
   I want to reduce the semantic gap between model and implementation.
 
 author_email: "damien@morard.me"
@@ -41,22 +41,6 @@ medium_username: dmorard1
 # telegram_username: yourusername
 # dribbble_username: yourusername
 # flickr_username: yourusername
-
-author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
-              visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
-              visibility: true
-
-show_author_work_experiences: true
 
 # important to use devlopr theme
 theme: devlopr
