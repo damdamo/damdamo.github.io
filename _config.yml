@@ -21,10 +21,10 @@ author_logo: general/ma_tete.png  # your profile image
 
 author: Damien Morard
 author_bio: >- # this means to ignore newlines until "author_email:"
-  Hey ! I'm Damien, a PhD student at the university of Geneva.
-  My research field is Computer Science, and my research areas are semantics, modeling and verification.
-  I'm working on an extension to improve High-level Petri nets, adding a way to use functions as token.
-  I want to reduce the semantic gap between model and implementation.
+  Hey, my name is Damien. I am a PhD student at the University of Geneva and researcher
+  in computer science. My research areas include semantics, modeling and verification.
+  Currently, I am working on improving High-level Petri nets by adding a way to use functions as token.
+  My goal is to reduce the semantic gap between an implementation and its model.
 
 author_email: "damien@morard.me"
 author_location: France
