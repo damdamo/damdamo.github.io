@@ -1,20 +1,21 @@
 ---
 layout: post
-title: Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)
+title: Les closures, l'application partielle et la curryfication (Partie 1/2) (Swift)
 author: Damien
 date: '2019-08-09'
 category:
     - tutorial
 summary: Introduction aux closures
-thumbnail: blog/poupee_russe.jpg
+thumbnail: blog/yoda_closures.jpg
 ---
 
-Disponible sur [Medium](https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67).
 
 ## Introduction
 
 Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.
+
+Disponible sur [Medium](https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67).
 
 ## Bienvenue dans le monde fantastique des closures (ou fermetures)
 
