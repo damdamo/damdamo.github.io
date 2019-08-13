@@ -175,4 +175,4 @@ Il faut cependant toujours faire attention à la lisibilité.
 Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
 à l'application partielle !
 
-[Partie 2: L'application partielle](../../../2019/08/10/partial-application-fr.html)
+[Partie 2: L'application partielle et la curryfication](../../../2019/08/10/partial-application-fr.html)
