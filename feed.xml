@@ -1,102 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-13T09:39:21+00:00</updated><id>/feed.xml</id><title type="html">Damien Morard</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 3/3) (Swift)</title><link href="/tutorial/2019/08/11/curryfication.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 3/3) (Swift)" /><published>2019-08-11T00:00:00+00:00</published><updated>2019-08-11T00:00:00+00:00</updated><id>/tutorial/2019/08/11/curryfication</id><content type="html" xml:base="/tutorial/2019/08/11/curryfication.html">&lt;p&gt;Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;Partie 1: Les closures&lt;/a&gt; !&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle et précision sur les closures&lt;/a&gt;
-Il est important de bien comprendre les notions abordés dans nos deux précédents chapitres !&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;la-curryfication&quot;&gt;La curryfication&lt;/h2&gt;
-
-&lt;p&gt;J’espère que vous êtes bien au clair avec les closures et l’application partielle vu que cette dernière partie va tout mettre à profit.&lt;/p&gt;
-
-&lt;p&gt;La curryfication est le principe de prendre une fonction avec “&lt;em&gt;n&lt;/em&gt;” paramètres et de la transformer en “&lt;em&gt;n&lt;/em&gt;” fonctions avec chacune un argument.&lt;/p&gt;
-
-&lt;p&gt;À l’inverse l’application partielle prend une fonction à “&lt;em&gt;n&lt;/em&gt;” arguments et la transforme en “&lt;em&gt;m&lt;/em&gt;” fonctions, avec “&lt;em&gt;m &amp;lt;= n&lt;/em&gt;” (Nous avons au plus autant de fonctions que d’arguments).
-Prenez le temps de relire ces phrase plusieurs fois si besoin.&lt;/p&gt;
-
-&lt;p&gt;Vous vous souvenez de l’exemple du poids de la dernière partie ?
-Même si l’objectif n’était pas de curryfier notre fonction, c’est pourtant ce que nous avons fait.&lt;/p&gt;
-
-&lt;p&gt;Si nous regardons juste en terme de signature de fonctions, voici un exemple:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;(Int, Int) -&amp;gt; Int&lt;/code&gt; devient &lt;code class=&quot;highlighter-rouge&quot;&gt;(Int) -&amp;gt; (Int) -&amp;gt; Int&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Nous pouvons faire encore plus:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;(Int, Int, Int) -&amp;gt; Int&lt;/code&gt; devient &lt;code class=&quot;highlighter-rouge&quot;&gt;(Int) -&amp;gt; (Int) -&amp;gt; (Int) -&amp;gt; Int&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;C’est bien joli mais je pense que vous voulez voir des exemples un peu plus concret.&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Version classique&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Version curry&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;La version classique est plus intuitive à réaliser de prime abord.
-La version “&lt;em&gt;addCurry&lt;/em&gt;” reprend exactement toutes les notions abordées jusqu’à présent.
-Nous avons simplement décomposé le second argument de la fonction dans notre closure.&lt;/p&gt;
-
-&lt;p&gt;Je vous montre aussi l’exemple à trois arguments tant que nous y sommes !&lt;/p&gt;
-
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Nous prenons simplement chaque argument de la fonction “&lt;em&gt;add&lt;/em&gt;” pour faire en sorte d’avoir des fonctions avec un unique argument.&lt;/p&gt;
-
-&lt;p&gt;Le principe de curryfication peut s’appliquer dans les deux sens, nous pouvons prendre une fonction pour la curryfier ou la decurryfier.&lt;/p&gt;
-
-&lt;h3 id=&quot;différence-entre-application-partielle-et-curryfication&quot;&gt;Différence entre application partielle et curryfication&lt;/h3&gt;
-
-&lt;p&gt;Au final, nous pourrions croire que la curryfication est un cas particulier de l’application partielle mais il existe une différence qui sépare ces deux notions.
-L’application partielle n’a pas nécessité à avoir un type de retour, tandis que la curryfication retournera toujours une fonction à un argument jusqu’au dernier type de retour qui sera la valeur.
-Cette nuance est subtile mais à le mérite d’exister, mais nous ne sommes pas ici pour débattre plus en détail sur ce sujet.&lt;/p&gt;
-
-&lt;h3 id=&quot;avantage-de-la-curryfication&quot;&gt;Avantage de la curryfication&lt;/h3&gt;
-
-&lt;p&gt;Quand vous curryfier une fonction, vous la transformez en ce que nous appelons une fonction “&lt;strong&gt;pure&lt;/strong&gt;”, possédant une propriété très intéressante.
-En effet les fonctions pures n’ont aucun effet de bord, c’est-à-dire qu’aucun comportement (mutation) non désirable dans le programme n’est possible.&lt;/p&gt;
-
-&lt;p&gt;Vous avez les mêmes avantages qu’avec l’application partielle:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Une meilleure décomposition du code&lt;/li&gt;
-  &lt;li&gt;Plus de clarté et de lisibilité du code&lt;/li&gt;
-  &lt;li&gt;La possibilité de déclarer des variables à différents niveaux de l’exécution.&lt;/li&gt;
-  &lt;li&gt;Vous pouvez plus facilement cibler à quel niveau vous désirez appliquer une modification.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Je vous conseille vivement de tester par vous-même, c’est le meilleur moyen de vous en rendre compte.&lt;/p&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Nous arrivons à la fin de notre série de tutoriel sur les closures, l’application partielle et la curryfication.
-J’espère avoir démystifier ces principes, et surtout vous avoir apporté une meilleure compréhension globale sur le sujet.&lt;/p&gt;
-
-&lt;p&gt;Je n’ai pas couvert tous les cas, et certains sujets méritent encore d’être explorés plus en profondeur.
-J’aurai l’occasion de revenir dans un article sur l’utilisation des closures dans les fonctions “&lt;em&gt;map&lt;/em&gt;”, “&lt;em&gt;filter&lt;/em&gt;” et “&lt;em&gt;reduce&lt;/em&gt;”.&lt;/p&gt;
-
-&lt;p&gt;Si vous avez des remarques / suggestions n’hésitez pas, je tâcherai de les prendre en compte au mieux.&lt;/p&gt;
-
-&lt;p&gt;Merci de m’avoir lu et j’espère vous retrouver dans d’autres articles !&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu les deux précédentes parties, vous pouvez les retrouver ci-dessous: Partie 1: Les closures ! Partie 2: L’application partielle et précision sur les closures Il est important de bien comprendre les notions abordés dans nos deux précédents chapitres !</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 2/3) (Swift)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 2/3) (Swift)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;ici&lt;/a&gt; !
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-13T18:53:17+00:00</updated><id>/feed.xml</id><title type="html">Damien Morard</title><subtitle>I share my passion about Computer Science and programming. You can find posts about my research, some tutorials in programming, or just sharing my knowledge. I particularly use the Swift language, created by Apple.</subtitle><author><name>Damien Morard</name></author><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 2/2) (Swift)</title><link href="/tutorial/2019/08/10/partial-application-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 2/2) (Swift)" /><published>2019-08-10T00:00:00+00:00</published><updated>2019-08-10T00:00:00+00:00</updated><id>/tutorial/2019/08/10/partial-application-fr</id><content type="html" xml:base="/tutorial/2019/08/10/partial-application-fr.html">&lt;p&gt;Si vous n’avez pas encore lu la première partie, c’est &lt;a href=&quot;../../../2019/08/09/closure-fr.html&quot;&gt;ici&lt;/a&gt; !
 Il est important de bien comprendre les notations utilisées lors de la précédente partie.&lt;/p&gt;
 
 &lt;h2 id=&quot;lapplication-partielle&quot;&gt;L’application partielle&lt;/h2&gt;
@@ -227,16 +129,109 @@ Bien vu !&lt;/p&gt;
 Nous avons repris la syntaxe des closures que nous avons vu dans la partie précédente.
 C’est comme retournée une fonction sans nom, et ça tombe bien vu que nous n’en avons pas besoin !&lt;/p&gt;
 
-&lt;p&gt;L’application partielle permet de donner autant de paramètres que souhaités, de même que nous pouvons faire une cascade de closure qui demanderont chacunes divers paramètres.&lt;/p&gt;
+&lt;p&gt;L’application partielle permet de donner autant de paramètres que souhaités, de même que nous pouvons faire une cascade de closures qui demanderont chacunes diverses paramètres.&lt;/p&gt;
 
 &lt;p&gt;Nous sommes enfin parés pour attaquer la dernière partie avec la curryfication !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;../../../2019/08/11/curryfication.html&quot;&gt;Partie 3: La curryfication&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/3) (Swift)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/3) (Swift)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;p&gt;Disponible sur &lt;a href=&quot;https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67&quot;&gt;Medium&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- [Partie 3: La curryfication](../../../2019/08/11/curryfication.html) --&gt;
 
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id=&quot;la-curryfication&quot;&gt;La curryfication&lt;/h2&gt;
+
+&lt;p&gt;J’espère que vous êtes bien au clair avec les closures et l’application partielle vu que cette dernière partie va tout mettre à profit.&lt;/p&gt;
+
+&lt;p&gt;La curryfication est le principe de prendre une fonction avec “&lt;em&gt;n&lt;/em&gt;” paramètres et de la transformer en “&lt;em&gt;n&lt;/em&gt;” fonctions avec chacune un argument.&lt;/p&gt;
+
+&lt;p&gt;À l’inverse l’application partielle prend une fonction à “&lt;em&gt;n&lt;/em&gt;” arguments et la transforme en “&lt;em&gt;m&lt;/em&gt;” fonctions, avec “&lt;em&gt;m &amp;lt;= n&lt;/em&gt;” (Nous avons au plus autant de fonctions que d’arguments).
+Prenez le temps de relire ces phrase plusieurs fois si besoin.&lt;/p&gt;
+
+&lt;p&gt;Vous vous souvenez de l’exemple du poids de la dernière partie ?
+Même si l’objectif n’était pas de curryfier notre fonction, c’est pourtant ce que nous avons fait.&lt;/p&gt;
+
+&lt;p&gt;Si nous regardons juste en terme de signature de fonctions, voici un exemple:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;(Int, Int) -&amp;gt; Int&lt;/code&gt; devient &lt;code class=&quot;highlighter-rouge&quot;&gt;(Int) -&amp;gt; (Int) -&amp;gt; Int&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Nous pouvons faire encore plus:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;(Int, Int, Int) -&amp;gt; Int&lt;/code&gt; devient &lt;code class=&quot;highlighter-rouge&quot;&gt;(Int) -&amp;gt; (Int) -&amp;gt; (Int) -&amp;gt; Int&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;C’est bien joli mais je pense que vous voulez voir des exemples un peu plus concret.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Version classique&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Version curry&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La version classique est plus intuitive à réaliser de prime abord.
+La version “&lt;em&gt;addCurry&lt;/em&gt;” reprend exactement toutes les notions abordées jusqu’à présent.
+Nous avons simplement décomposé le second argument de la fonction dans notre closure.&lt;/p&gt;
+
+&lt;p&gt;Je vous montre aussi l’exemple à trois arguments tant que nous y sommes !&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addCurry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nous prenons simplement chaque argument de la fonction “&lt;em&gt;add&lt;/em&gt;” pour faire en sorte d’avoir des fonctions avec un unique argument.&lt;/p&gt;
+
+&lt;p&gt;Le principe de curryfication peut s’appliquer dans les deux sens, nous pouvons prendre une fonction pour la curryfier ou la decurryfier.&lt;/p&gt;
+
+&lt;h3 id=&quot;différence-entre-application-partielle-et-curryfication&quot;&gt;Différence entre application partielle et curryfication&lt;/h3&gt;
+
+&lt;p&gt;Au final, nous pourrions croire que la curryfication est un cas particulier de l’application partielle mais il existe une différence qui sépare ces deux notions.
+L’application partielle n’a pas nécessité à avoir un type de retour, tandis que la curryfication retournera toujours une fonction à un argument jusqu’au dernier type de retour qui sera la valeur.
+Cette nuance est subtile mais à le mérite d’exister, mais nous ne sommes pas ici pour débattre plus en détail sur ce sujet.&lt;/p&gt;
+
+&lt;h3 id=&quot;avantage-de-la-curryfication&quot;&gt;Avantage de la curryfication&lt;/h3&gt;
+
+&lt;p&gt;Quand vous curryfier une fonction, vous la transformez en ce que nous appelons une fonction “&lt;strong&gt;pure&lt;/strong&gt;”, possédant une propriété très intéressante.
+En effet les fonctions pures n’ont aucun effet de bord, c’est-à-dire qu’aucun comportement (mutation) non désirable dans le programme n’est possible.&lt;/p&gt;
+
+&lt;p&gt;Vous avez les mêmes avantages qu’avec l’application partielle:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Une meilleure décomposition du code&lt;/li&gt;
+  &lt;li&gt;Plus de clarté et de lisibilité du code&lt;/li&gt;
+  &lt;li&gt;La possibilité de déclarer des variables à différents niveaux de l’exécution.&lt;/li&gt;
+  &lt;li&gt;Vous pouvez plus facilement cibler à quel niveau vous désirez appliquer une modification.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Je vous conseille vivement de tester par vous-même, c’est le meilleur moyen de vous en rendre compte.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Nous arrivons à la fin de notre série de tutoriel sur les closures, l’application partielle et la curryfication.
+J’espère avoir démystifier ces principes, et surtout vous avoir apporté une meilleure compréhension globale sur le sujet.&lt;/p&gt;
+
+&lt;p&gt;Je n’ai pas couvert tous les cas, et certains sujets méritent encore d’être explorés plus en profondeur.
+J’aurai l’occasion de revenir dans un article sur l’utilisation des closures dans les fonctions “&lt;em&gt;map&lt;/em&gt;”, “&lt;em&gt;filter&lt;/em&gt;” et “&lt;em&gt;reduce&lt;/em&gt;”.&lt;/p&gt;
+
+&lt;p&gt;Si vous avez des remarques / suggestions n’hésitez pas, je tâcherai de les prendre en compte au mieux.&lt;/p&gt;
+
+&lt;p&gt;Merci de m’avoir lu et j’espère vous retrouver dans d’autres articles !&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Si vous n’avez pas encore lu la première partie, c’est ici ! Il est important de bien comprendre les notations utilisées lors de la précédente partie.</summary></entry><entry><title type="html">Les closures, l’application partielle et la curryfication (Partie 1/2) (Swift)</title><link href="/tutorial/2019/08/09/closure-fr.html" rel="alternate" type="text/html" title="Les closures, l'application partielle et la curryfication (Partie 1/2) (Swift)" /><published>2019-08-09T00:00:00+00:00</published><updated>2019-08-09T00:00:00+00:00</updated><id>/tutorial/2019/08/09/closure-fr</id><content type="html" xml:base="/tutorial/2019/08/09/closure-fr.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Ce titre vous fait peur ? Ou plutôt les notions abordées sont effrayantes ?
 Ne fuyez pas et prenez le temps à mes côtés de démystifier ses concepts, comprendre le fonctionnement derrière ce qui peut vous sembler être de la magie.&lt;/p&gt;
+
+&lt;p&gt;Disponible sur &lt;a href=&quot;https://medium.com/@dmorard1/fermeture-closure-application-partielle-et-curryfication-en-swift-partie-1-3-4c2c6f2bce67&quot;&gt;Medium&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;bienvenue-dans-le-monde-fantastique-des-closures-ou-fermetures&quot;&gt;Bienvenue dans le monde fantastique des closures (ou fermetures)&lt;/h2&gt;
 
@@ -396,7 +391,7 @@ Il faut cependant toujours faire attention à la lisibilité.&lt;/p&gt;
 &lt;p&gt;Nous en avons terminé avec cette première partie sur les closures, passons sans plus tarder
 à l’application partielle !&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Disponible sur Medium.</summary></entry><entry><title type="html">Introduction</title><link href="/personal/2019/08/08/first.html" rel="alternate" type="text/html" title="Introduction" /><published>2019-08-08T00:00:00+00:00</published><updated>2019-08-08T00:00:00+00:00</updated><id>/personal/2019/08/08/first</id><content type="html" xml:base="/personal/2019/08/08/first.html">&lt;p&gt;Hello!
+&lt;p&gt;&lt;a href=&quot;../../../2019/08/10/partial-application-fr.html&quot;&gt;Partie 2: L’application partielle&lt;/a&gt;&lt;/p&gt;</content><author><name>Damien</name></author><category term="[&quot;tutorial&quot;]" /><summary type="html">Introduction</summary></entry><entry><title type="html">Introduction</title><link href="/personal/2019/08/08/first.html" rel="alternate" type="text/html" title="Introduction" /><published>2019-08-08T00:00:00+00:00</published><updated>2019-08-08T00:00:00+00:00</updated><id>/personal/2019/08/08/first</id><content type="html" xml:base="/personal/2019/08/08/first.html">&lt;p&gt;Hello!
 I am Damien and I decided to create my own website.
 Why? Because I just want to share my passion of computer science!
 Here I will share insights of my research, different kinds of tutorials and tips to enhance your (and my) knowledge on particular subjects, or (sometimes) simply just my opinion.&lt;/p&gt;
