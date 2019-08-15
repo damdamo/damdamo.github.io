@@ -5,7 +5,7 @@ author: Damien
 date: '2019-08-10'
 category:
     - tutorial
-summary: Application partielle et Curryfication
+summary: Application partielle et curryfication
 thumbnail: blog/poupee_russe.jpg
 ---
 

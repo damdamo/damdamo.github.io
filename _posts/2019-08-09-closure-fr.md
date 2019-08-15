@@ -95,9 +95,9 @@ func apply(_ x: Int,_ y: Int, op: (Int, Int) -> Int) -> Int {
 }
 ```
 
-Nous avons désormais la fonction *apply*, qui prend deux entiers et va appliquer une opération sur ceux-ci.
+Nous avons désormais la fonction "*apply*", qui prend deux entiers et va appliquer une opération sur ceux-ci.
 Il faut être au clair sur la notation "*op: (Int, Int) -> Int* ".
-Cela signifie que le paramètre *op* attend une fonction ou une closure qui prend deux entiers comme paramètres d'entrée, et retourne un entier.
+Cela signifie que le paramètre "*op*" attend une fonction ou une closure qui prend deux entiers comme paramètres d'entrée, et retourne un entier.
 Vous l'avez peut-être remarqué, mais la closure que nous avons écrite avant répond parfaitement à ces conditions.
 Nous pouvons donc simplement appelée notre fonction ainsi :
 
